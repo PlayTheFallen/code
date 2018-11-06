@@ -6,8 +6,8 @@
 ## Links
 
 - [Website](https://rethinkdb.com)
-- [GitHub](/rethinkdb)
-- [GitHub Repo (rethinkdb-js)](/rethinkdb/rethinkdb-js)
+- [GitHub](https://github.com/rethinkdb)
+- [GitHub Repo (rethinkdb-js)](https://github.com/rethinkdb/rethinkdb-js)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/rethinkdb)
 - [Twitter (@rethinkdb)](https://twitter.com/rethinkdb)
 
