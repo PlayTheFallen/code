@@ -32,3 +32,28 @@ shiftObj({0: '0', 1: '1', 2: '2', 3: '3'}, [1, 3])
  * filter the values of 's' to find '_i' or an element of '_i' and check for Boolean negation.
  * Therefore removing the target element(s).
  */
+
+// Alternative es6 solution using pure string keys | Both do the exact same task, just that the 2nd runs on a single line
+// (Explained below) replace !<array>.includes($1) with <array>.indexOf($1) === -1
+// 1) https://caniuse.com/#feat=array-includes
+// 2) https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes#Browser_compatibility
+
+/**
+ * 
+ * @param {Object<string, number>} s 
+ * @param  {...string} _k 
+ */
+let shiftObj = (source, ...props) => {
+    let copy = {};
+    for (const key in source) {
+        if(!props.includes(key)) {
+            copy[key] = source[key];
+        }
+    }
+    return copy;
+}
+
+let shiftObj = (s, ..._k) => Object.entries(s).filter((v) => !_k.includes(v[0])).reduce((p, c) => (p[c[0]] = c[1], p), {});
+
+// Test
+shiftObj({id: Math.random() * Number.MAX_SAFE_INTEGER, propA: Math.random(), propB: Math.random()}, "propA", "propB");
