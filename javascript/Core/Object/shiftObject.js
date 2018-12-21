@@ -57,3 +57,13 @@ let shiftObj = (s, ..._k) => Object.entries(s).filter((v) => !_k.includes(v[0]))
 
 // Test
 shiftObj({id: Math.random() * Number.MAX_SAFE_INTEGER, propA: Math.random(), propB: Math.random()}, "propA", "propB");
+
+// Total randomness
+
+// You can also choose to completely omit the spread expressions (equivalent to doing - Array.prototype.slice.apply(arguments).slice(1); )
+// You can choose to add a literal 1 to the reducing index to represent the position of the intended letter found in the english alphabet
+// i.e. a -> 1, b -> 2, etc. rather than a -> 0, b -> 1, etc.
+let _a = "abcdefghijklmnopqrstuvwxyz".split("");
+let randomObj = [..._a].reduce((p, c, i) => (p[c] = i, p), {});
+let randomKeys = [..._a].filter(() => Math.random() > .5);
+shiftObj(randomObj, ...randomKeys);
